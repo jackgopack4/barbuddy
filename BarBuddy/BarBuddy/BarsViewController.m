@@ -49,6 +49,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     //TODO: MAKE THIS DYNAMIC BASED ON BARS LIST LENGTH
+    //Merge test
     return 5;
 }
 
