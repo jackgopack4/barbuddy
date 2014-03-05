@@ -21,6 +21,9 @@
 		6DC629E618C7C9F300AFC950 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DC629C818C7C9F200AFC950 /* UIKit.framework */; };
 		6DC629EE18C7C9F300AFC950 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6DC629EC18C7C9F300AFC950 /* InfoPlist.strings */; };
 		6DC629F018C7C9F300AFC950 /* BarBuddyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC629EF18C7C9F300AFC950 /* BarBuddyTests.m */; };
+		6DC629FE18C7D32900AFC950 /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC629FD18C7D32900AFC950 /* Bar.m */; };
+		6DC62A0118C7D4A700AFC950 /* BarsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A0018C7D4A700AFC950 /* BarsViewController.m */; };
+		6DC62A0418C7D51700AFC950 /* BarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC62A0318C7D51700AFC950 /* BarCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		6DC629EB18C7C9F300AFC950 /* BarBuddyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BarBuddyTests-Info.plist"; sourceTree = "<group>"; };
 		6DC629ED18C7C9F300AFC950 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6DC629EF18C7C9F300AFC950 /* BarBuddyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarBuddyTests.m; sourceTree = "<group>"; };
+		6DC629FC18C7D32900AFC950 /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		6DC629FD18C7D32900AFC950 /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		6DC629FF18C7D4A700AFC950 /* BarsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarsViewController.h; sourceTree = "<group>"; };
+		6DC62A0018C7D4A700AFC950 /* BarsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarsViewController.m; sourceTree = "<group>"; };
+		6DC62A0218C7D51700AFC950 /* BarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarCell.h; sourceTree = "<group>"; };
+		6DC62A0318C7D51700AFC950 /* BarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +123,9 @@
 			children = (
 				6DC629D318C7C9F200AFC950 /* AppDelegate.h */,
 				6DC629D418C7C9F200AFC950 /* AppDelegate.m */,
-				6DC629D618C7C9F200AFC950 /* Main.storyboard */,
-				6DC629D918C7C9F200AFC950 /* ViewController.h */,
-				6DC629DA18C7C9F200AFC950 /* ViewController.m */,
+				6DC629FB18C7CB8300AFC950 /* Views */,
+				6DC629FA18C7CB7200AFC950 /* Models */,
+				6DC629F918C7CB6200AFC950 /* Controllers */,
 				6DC629DC18C7C9F300AFC950 /* Images.xcassets */,
 				6DC629CB18C7C9F200AFC950 /* Supporting Files */,
 			);
@@ -150,6 +159,36 @@
 				6DC629EC18C7C9F300AFC950 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6DC629F918C7CB6200AFC950 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6DC629FF18C7D4A700AFC950 /* BarsViewController.h */,
+				6DC62A0018C7D4A700AFC950 /* BarsViewController.m */,
+				6DC629D918C7C9F200AFC950 /* ViewController.h */,
+				6DC629DA18C7C9F200AFC950 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6DC629FA18C7CB7200AFC950 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6DC629FC18C7D32900AFC950 /* Bar.h */,
+				6DC629FD18C7D32900AFC950 /* Bar.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6DC629FB18C7CB8300AFC950 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6DC629D618C7C9F200AFC950 /* Main.storyboard */,
+				6DC62A0218C7D51700AFC950 /* BarCell.h */,
+				6DC62A0318C7D51700AFC950 /* BarCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +289,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DC629DB18C7C9F200AFC950 /* ViewController.m in Sources */,
+				6DC62A0418C7D51700AFC950 /* BarCell.m in Sources */,
+				6DC62A0118C7D4A700AFC950 /* BarsViewController.m in Sources */,
+				6DC629FE18C7D32900AFC950 /* Bar.m in Sources */,
 				6DC629D518C7C9F200AFC950 /* AppDelegate.m in Sources */,
 				6DC629D118C7C9F200AFC950 /* main.m in Sources */,
 			);
