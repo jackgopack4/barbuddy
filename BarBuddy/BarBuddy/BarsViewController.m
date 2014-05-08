@@ -7,11 +7,11 @@
 //
 
 #import "BarsViewController.h"
-#import "Bar.h"
+#import "BarsModel.h"
 #import "BarCell.h"
 
 @interface BarsViewController () {
-    Bar *bar;
+    BarsModel *_bars;
 }
 
 @end
@@ -36,12 +36,29 @@
     
     //NSArray *actionButtonItems = @[shareItem, cameraItem];
     //self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
+    _bars = [[BarsModel alloc] init];
+    
+    _bars.delegate = self;
+    
+    [_bars downloadItems];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)itemsDownloaded:(NSArray *)items
+{
+    // This delegate method will get called when the items are finished downloading
+    
+    // Set the downloaded items to the array
+    //_feedItems = items;
+    
+    // Reload the table view
+    //[self.listTableView reloadData];
 }
 
 
