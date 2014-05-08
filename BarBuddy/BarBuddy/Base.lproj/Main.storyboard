@@ -206,10 +206,10 @@
             </objects>
             <point key="canvasLocation" x="589" y="744"/>
         </scene>
-        <!--View Controller - Bar-->
+        <!--Bar View Controller - Bar-->
         <scene sceneID="6gf-8p-2ao">
             <objects>
-                <viewController id="9XY-2Q-BZY" sceneMemberID="viewController">
+                <viewController id="9XY-2Q-BZY" customClass="BarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ebI-X6-puq"/>
                         <viewControllerLayoutGuide type="bottom" id="5sj-X0-Xcs"/>
