@@ -34,6 +34,12 @@
     self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
+- (IBAction)buttonSkip:(id)sender {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:TRUE forKey:@"Skip Login"];
+    [defaults synchronize];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

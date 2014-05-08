@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="106" y="46"/>
         </scene>
-        <!--View Controller - Home-->
+        <!--Home View Controller - Home-->
         <scene sceneID="tPl-3l-EMN">
             <objects>
-                <viewController id="3Dw-8r-Ygq" sceneMemberID="viewController">
+                <viewController id="3Dw-8r-Ygq" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d6o-AY-a9F"/>
                         <viewControllerLayoutGuide type="bottom" id="HLu-KP-7PV"/>
@@ -112,6 +112,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9e-sZ-ttD">
+                                <rect key="frame" x="70" y="414" width="181" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Never show me this again.">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSkip:" destination="3pT-XO-jsu" eventType="touchUpInside" id="W8O-Xw-hb7"/>
+                                    <segue destination="3Dw-8r-Ygq" kind="push" id="muX-N9-alB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -271,4 +282,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="muX-N9-alB"/>
+    </inferredMetricsTieBreakers>
 </document>
