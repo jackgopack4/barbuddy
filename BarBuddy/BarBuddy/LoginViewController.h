@@ -15,4 +15,6 @@
 }
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
+- (IBAction)buttonSkip:(id)sender;
+
 @end

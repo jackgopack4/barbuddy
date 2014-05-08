@@ -16,6 +16,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults boolForKey:@"Skip Login"]) {
+        // load the Home view controller first
+    }
+    
     //Can change our color here. Select Navbar in
     // Storyboard -> NavBar -> Attri Inspector -> Transluscent for transluscent properties.
     [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x067AB5)];
@@ -38,7 +43,10 @@
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
         [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
         shadow, NSShadowAttributeName,[UIFont fontWithName:@"HelveticaNeue-CondensedBlack" size:21.0], NSFontAttributeName, nil]];
+    
+    // Initialize classes for facebook login
     [FBLoginView class];
+    [FBProfilePictureView class];
     return YES;
 
 }

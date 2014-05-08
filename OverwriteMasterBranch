@@ -1,0 +1,6 @@
+git checkout seotweaks
+git merge -s ours master
+git checkout master
+git merge seotweaks
+
+note: seotweaks is the name of the branch you want to overwrite master with
