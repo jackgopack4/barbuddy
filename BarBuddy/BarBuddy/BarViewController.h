@@ -9,10 +9,11 @@
 #import "BarViewController.h"
 #import "Bar.h"
 #import "Drink.h"
+#import "DrinkCell.h"
 
 #import <UIKit/UIKit.h>
 
-@interface BarViewController : UIViewController
+@interface BarViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *barView;
 
@@ -20,13 +21,10 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *selectedBarHours;
 
-@property (weak, nonatomic) IBOutlet UILabel *selectedBarWebsite;
-
 @property (weak, nonatomic) IBOutlet UIImageView *selectedBarImage;
 
 @property (weak, nonatomic) IBOutlet UITableView *drinkTableView;
 
 @property (strong, nonatomic) Bar *selectedBar;
-
 
 @end

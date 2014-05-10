@@ -95,10 +95,10 @@
         cell = [[BarCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     }
     
-    // TODO: FILL THE CELL WITH DATA FROM SERVER
+    // Grab the bar that matches this cell
     Bar *bar = [_feedItems objectAtIndex:indexPath.row];
     
-    // TODO: SET LABELS BASED ON DATA
+    // Fill the cell with pertinent data
     [cell.barName setText:bar.barName];
     
     return cell;
@@ -108,8 +108,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     _selectedBar = [_feedItems objectAtIndex:indexPath.row];
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // Manually call segue to detail view controller
+    [self performSegueWithIdentifier:@"barSegue" sender:self];
 }
 
 #pragma mark Segue
@@ -118,7 +121,7 @@
 {
     // Get reference to the destination view controller
     BarViewController *barVC = segue.destinationViewController;
-    
+
     // Set the property to the selected bar so new view can use the object
     barVC.selectedBar = _selectedBar;
 }
