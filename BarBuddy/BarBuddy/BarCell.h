@@ -12,6 +12,4 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *barName;
 
-@property (weak, nonatomic) IBOutlet UILabel *distance;
-
 @end

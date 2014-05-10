@@ -10,4 +10,7 @@
 
 @interface HomeViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *homeView;
+
+
 @end

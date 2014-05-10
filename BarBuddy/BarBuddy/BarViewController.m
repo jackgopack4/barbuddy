@@ -8,7 +8,6 @@
 
 #import "BarViewController.h"
 
-
 @interface BarViewController ()
 
 @end
@@ -32,7 +31,9 @@
     
     NSArray *actionButtonItems = @[shareItem];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning

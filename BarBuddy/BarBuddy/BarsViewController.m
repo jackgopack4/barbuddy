@@ -7,11 +7,16 @@
 //
 
 #import "BarsViewController.h"
+#import "BarViewController.h"
+
 #import "BarsModel.h"
 #import "BarCell.h"
+#import "Bar.h"
 
 @interface BarsViewController () {
     BarsModel *_bars;
+    NSArray *_feedItems;
+    Bar *_selectedBar;
 }
 
 @end
@@ -37,8 +42,15 @@
     //NSArray *actionButtonItems = @[shareItem, cameraItem];
     //self.navigationItem.rightBarButtonItems = actionButtonItems;
     
-    _bars = [[BarsModel alloc] init];
+    // Set this view controller object as the delegate and data source for the table view
+    self.listTableView.delegate = self;
+    self.listTableView.dataSource = self;
     
+    // Create array object and assign it to _feedItems variable
+    _feedItems = [[NSArray alloc] init];
+    
+    // Create BarModel object and set it as the delegate for bar model object
+    _bars = [[BarsModel alloc] init];
     _bars.delegate = self;
     
     [_bars downloadItems];
@@ -55,24 +67,24 @@
     // This delegate method will get called when the items are finished downloading
     
     // Set the downloaded items to the array
-    //_feedItems = items;
+    _feedItems = items;
     
     // Reload the table view
-    //[self.listTableView reloadData];
+    [self.listTableView reloadData];
 }
 
 
 #pragma mark Table Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Default behavior
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //TODO: MAKE THIS DYNAMIC BASED ON BARS LIST LENGTH
-    //Merge test
-    return 5;
+    // The number of cells that need to be created
+    return _feedItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -84,10 +96,10 @@
     }
     
     // TODO: FILL THE CELL WITH DATA FROM SERVER
+    Bar *bar = [_feedItems objectAtIndex:indexPath.row];
     
     // TODO: SET LABELS BASED ON DATA
-    [cell.barName setText:@"Test Bar"];
-    [cell.distance setText:@"Distance"];
+    [cell.barName setText:bar.barName];
     
     return cell;
 }
@@ -95,7 +107,20 @@
 #pragma mark - Tableview Data Source
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _selectedBar = [_feedItems objectAtIndex:indexPath.row];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get reference to the destination view controller
+    BarViewController *barVC = segue.destinationViewController;
+    
+    // Set the property to the selected bar so new view can use the object
+    barVC.selectedBar = _selectedBar;
 }
 
 @end

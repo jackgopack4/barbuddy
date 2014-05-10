@@ -54,14 +54,15 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     // Create an array to store the locations
-    NSMutableArray *_barInformation = [[NSMutableArray alloc] init];
+    //NSMutableArray *_barInformation = [[NSMutableArray alloc] init];
+    NSMutableArray *barList = [[NSMutableArray alloc] init];
     
     // Parse the JSON that came in
     NSError *error;
     NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:_downloadedData options:NSJSONReadingAllowFragments error:&error];
     
     
-    NSMutableArray *barList = [[NSMutableArray alloc] init];
+    
     
     // Loop through JSON objects, build bar list
     NSEnumerator *barEnumerator = [dataDictionary objectEnumerator];
@@ -69,7 +70,7 @@
     
     while (barElement = [barEnumerator nextObject]) {
         
-        NSLog(@"data %@", barElement);
+        //NSLog(@"data %@", barElement);
         // initialize the new bar
         Bar *newBar = [[Bar alloc] init];
         
@@ -100,13 +101,13 @@
         //NSLog(@"site = %@", newBar.barWebSite);
     }
     
-    NSLog(@"data %@", barList);
+    //NSLog(@"data %@", barList);
     
     // Ready to notify delegate that data is ready and pass back items
-    //if (self.delegate)
-    //{
-    //    [self.delegate itemsDownloaded:_barInformation];
-    //}
+    if (self.delegate)
+    {
+        [self.delegate itemsDownloaded:barList];
+    }
 }
 
 @end

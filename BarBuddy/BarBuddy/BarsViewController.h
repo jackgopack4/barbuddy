@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BarsModel.h"
 
-@interface BarsViewController : UIViewController <BarsModelProtocol>
+@interface BarsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, BarsModelProtocol>
+
+@property (weak, nonatomic) IBOutlet UITableView *listTableView;
 
 @end
