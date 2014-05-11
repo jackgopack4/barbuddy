@@ -79,9 +79,7 @@
     Drink *drink = [self.selectedBar.drinkList objectAtIndex:indexPath.row];
     
     // Fill the cell with pertinent data
-    NSString *description = [NSString stringWithFormat:@"Drink: %@ Cost %@",drink.drinkName,drink.drinkCost];
-
-    [cell.drinkDescription setText:description];
+    [cell.drinkDescription setText:[drink getFormattedDescription]];
     
     return cell;
 }

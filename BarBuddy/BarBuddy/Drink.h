@@ -14,4 +14,9 @@
 @property (nonatomic, strong) NSString *drinkCost;
 @property (nonatomic, strong) NSString *drinkDay;
 
+-(NSString *) getDrinkName;
+-(NSString *) getDrinkCost;
+-(NSString *) getDrinkDay;
+-(NSString *) getFormattedDescription;
+
 @end
