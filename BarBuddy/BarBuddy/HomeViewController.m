@@ -13,6 +13,7 @@
 @end
 
 @implementation HomeViewController
+@synthesize logo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,7 +26,9 @@
 
 - (void)viewDidLoad
 {
+    //self.view.backgroundColor = [UIColor lightGrayColor];
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -33,6 +36,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)ShowLogo:(id)sender{
+    
+    if (logo.isHidden) {
+        logo.hidden = NO;
+    }
+    else {
+        logo.hidden = YES;
+    }
 }
 
 /*

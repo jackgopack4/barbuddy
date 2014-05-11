@@ -74,11 +74,19 @@
 }
 
 
+
 #pragma mark Table Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Default behavior
     return 1;
+}
+
+- (IBAction)listToMap:(UISegmentedControl *)sender {
+    UISegmentedControl *seg = sender;
+    if(seg.selectedSegmentIndex == 0) {
+        [self performSegueWithIdentifier:@"listToMap" sender:self];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -119,11 +127,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get reference to the destination view controller
-    BarViewController *barVC = segue.destinationViewController;
-
-    // Set the property to the selected bar so new view can use the object
-    barVC.selectedBar = _selectedBar;
+    if([segue.identifier isEqualToString:@"barSegue"] ) {
+        // Get reference to the destination view controller
+        BarViewController *barVC = segue.destinationViewController;
+    
+        // Set the property to the selected bar so new view can use the object
+        barVC.selectedBar = _selectedBar;
+    }
+    
 }
 
 @end

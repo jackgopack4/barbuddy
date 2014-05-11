@@ -11,6 +11,8 @@
 @interface HomeViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIView *homeView;
+@property (weak, nonatomic) IBOutlet UIImageView *logo;
+
 
 
 @end
