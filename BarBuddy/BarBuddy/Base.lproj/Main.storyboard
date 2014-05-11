@@ -174,7 +174,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="40" id="q8F-Bh-l8J" customClass="BarCell">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="40"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q8F-Bh-l8J" id="udS-fG-m14">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="39"/>
@@ -241,7 +241,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2oi-Sv-Yw6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-76.png" translatesAutoresizingMaskIntoConstraints="NO" id="2oi-Sv-Yw6">
                                 <rect key="frame" x="20" y="84" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -382,6 +382,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Icon-76.png" width="76" height="76"/>
         <image name="logo.png" width="817" height="630"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
