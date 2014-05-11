@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJN-4g-GPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJN-4g-GPy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -12,7 +12,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="3Dw-8r-Ygq" kind="relationship" relationship="rootViewController" id="K4S-jp-KmU"/>
+                        <segue destination="3pT-XO-jsu" kind="relationship" relationship="rootViewController" id="1bz-Zv-jfq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRv-Md-OyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,9 +32,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlR-fM-ETW">
+<<<<<<< HEAD
                                 <rect key="frame" x="20" y="499" width="137" height="49"/>
+=======
+                                <rect key="frame" x="20" y="419" width="280" height="49"/>
+>>>>>>> 54c9d1b63b2578acc025f14208d47bd1c663cfdd
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <state key="normal" title="Bar List">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,10 +46,11 @@
                                     <segue destination="eWc-yk-GP3" kind="push" id="4Jx-0O-KYJ"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8YX-3A-CIz">
                                 <rect key="frame" x="163" y="499" width="137" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <state key="normal" title="Bar Map">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -53,17 +58,21 @@
                                     <segue destination="9bf-4m-fm3" kind="push" id="x6c-t8-vQj"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-sQ-02l">
-                                <rect key="frame" x="44" y="135" width="256" height="374"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-sQ-02l">
+                                <rect key="frame" x="20" y="85" width="280" height="397"/>
+=======
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-sQ-02l">
+                                <rect key="frame" x="-55" y="117" width="457" height="364"/>
+>>>>>>> 54c9d1b63b2578acc025f14208d47bd1c663cfdd
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="oQ6-p2-NjA">
-                        <barButtonItem key="rightBarButtonItem" title="Sign In" id="y9D-9e-T54">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="y9D-9e-T54">
                             <connections>
-                                <segue destination="3pT-XO-jsu" kind="push" id="b00-b0-uoT"/>
+                                <segue destination="aAd-2S-Wv6" kind="push" id="a44-J9-itQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -95,6 +104,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H01-zc-EAt" userLabel="Continue Button">
+                                <rect key="frame" x="123" y="363" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3Dw-8r-Ygq" kind="push" id="OJq-XL-pFP"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pla-7W-drx" userLabel="Facebook Button" customClass="FBLoginView">
                                 <rect key="frame" x="55" y="306" width="210" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -115,6 +134,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9e-sZ-ttD">
+                                <rect key="frame" x="70" y="414" width="181" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Never show me this again.">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonSkip:" destination="3pT-XO-jsu" eventType="touchUpInside" id="W8O-Xw-hb7"/>
+                                    <segue destination="3Dw-8r-Ygq" kind="push" id="muX-N9-alB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -169,7 +199,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5ld-QK-UyU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="522"/>
+<<<<<<< HEAD
+                                <rect key="frame" x="0.0" y="66" width="320" height="456"/>
+=======
+                                <rect key="frame" x="0.0" y="1" width="320" height="567"/>
+>>>>>>> 54c9d1b63b2578acc025f14208d47bd1c663cfdd
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -205,9 +239,6 @@
                                     <segment title="Map"/>
                                     <segment title="List"/>
                                 </segments>
-                                <connections>
-                                    <action selector="listToMap:" destination="eWc-yk-GP3" eventType="valueChanged" id="WSY-p3-cUG"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -216,7 +247,6 @@
                     <connections>
                         <outlet property="listTableView" destination="5ld-QK-UyU" id="IXU-ZD-PhT"/>
                         <segue destination="9XY-2Q-BZY" kind="push" identifier="barSegue" id="Yj1-fK-Ifj"/>
-                        <segue destination="9bf-4m-fm3" kind="push" identifier="listToMap" id="QnK-hI-RfE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zaj-fq-1LX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,9 +393,6 @@
                                     <segment title="Map"/>
                                     <segment title="List"/>
                                 </segments>
-                                <connections>
-                                    <action selector="mapToList:" destination="9bf-4m-fm3" eventType="valueChanged" id="XgG-E9-7ro"/>
-                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -373,7 +400,6 @@
                     <navigationItem key="navigationItem" title="Bars Map" id="zXN-pT-1FG"/>
                     <connections>
                         <outlet property="BarsMapView" destination="vJV-sg-phP" id="2xf-H5-ZyE"/>
-                        <segue destination="eWc-yk-GP3" kind="push" identifier="mapToList" id="dTd-V0-5Nk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDo-bw-yCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -382,7 +408,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo.png" width="817" height="630"/>
+        <image name="mainLogo.png" width="817" height="630"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -390,7 +416,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dTd-V0-5Nk"/>
-        <segue reference="QnK-hI-RfE"/>
+        <segue reference="muX-N9-alB"/>
     </inferredMetricsTieBreakers>
 </document>
