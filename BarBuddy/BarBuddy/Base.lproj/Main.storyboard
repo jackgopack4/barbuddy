@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJN-4g-GPy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="KJN-4g-GPy">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -41,8 +41,8 @@
                                     <segue destination="eWc-yk-GP3" kind="push" id="4Jx-0O-KYJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-sQ-02l">
-                                <rect key="frame" x="20" y="85" width="280" height="397"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="wYR-sQ-02l">
+                                <rect key="frame" x="-55" y="149" width="457" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -57,6 +57,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeView" destination="w6A-1C-NwN" id="6ew-zt-mcm"/>
+                        <outlet property="logo" destination="wYR-sQ-02l" id="fO0-Jp-TgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0e-aH-7al" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,6 +338,9 @@
             <point key="canvasLocation" x="1096" y="1406"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mainLogo.png" width="817" height="630"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

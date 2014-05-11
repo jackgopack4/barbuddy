@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad
 {
+    //self.view.backgroundColor = [UIColor lightGrayColor];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
