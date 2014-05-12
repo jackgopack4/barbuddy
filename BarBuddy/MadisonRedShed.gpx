@@ -1,0 +1,313 @@
+<?php
+
+include 'index.inc';
+
+function term_replace($term, $string)
+{
+   if ($term == 'crlf')
+   {
+      return preg_replace('/\n/', "\r\n", $string);
+   }
+
+   if ($term == 'cr')
+   {
+      return preg_replace('/\n/', "\r", $string);
+   }
+
+   return $string;
+}
+
+   $defs = array(
+   'lat'        => array('filter' => FILTER_SANITIZE_NUMBER_FLOAT,
+                         'flags'  => FILTER_FLAG_ALLOW_FRACTION),
+   'lon'        =>  array('filter' => FILTER_SANITIZE_NUMBER_FLOAT,
+                         'flags'  => FILTER_FLAG_ALLOW_FRACTION),
+   'name'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'cmt'        => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'ele'        => array('filter' => FILTER_SANITIZE_NUMBER_FLOAT,
+                         'flags'  => FILTER_FLAG_ALLOW_FRACTION),
+   'sym'        => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'type'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'desc'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'prox'       => array('filter' => FILTER_SANITIZE_NUMBER_FLOAT,
+                         'flags'  => FILTER_FLAG_ALLOW_FRACTION),
+   'cat'        => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'staddr'     => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'city'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'state'      => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'country'    => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'postalcode' => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'phone'      => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'phone2'     => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'fax'        => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'email'      => FILTER_SANITIZE_EMAIL,
+   'url'        => FILTER_SANITIZE_URL,
+   'submit'     => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'file'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'term'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES),
+   'mode'       => array('filter' => FILTER_SANITIZE_STRING,
+                         'flags'  =>  FILTER_FLAG_STRIP_LOW|FILTER_FLAG_STRIP_HIGH|FILTER_FLAG_NO_ENCODE_QUOTES)
+       );
+   $input = filter_input_array(INPUT_POST, $defs);
+
+   if ($input['term'] == 'crlf')
+   {
+      $term = "\r\n";
+   }
+
+   if ($input['term'] == 'lf')
+   {
+      $term = "\n";
+   }
+
+   if ($input['term'] == 'cr')
+   {
+      $term = "\r";
+   }
+
+   $gpxx3 = 0;
+   $cat_ext = 0;
+   $addr_ext = 0;
+
+   if ($input['prox'])
+   {
+      $gpxx3 = 1;
+   }
+
+   if ($input['cat'])
+   {
+      $cat_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['staddr'])
+   {
+      $addr_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['city'])
+   {
+      $addr_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['state'])
+   {
+      $addr_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['country'])
+   {
+      $addr_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['postalcode'])
+   {
+      $addr_ext = 1;
+      $gpxx3 = 1;
+   }
+
+   if ($input['phone'])
+   {
+      $gpxx3 = 1;
+   }
+
+   if ($input['phone2'])
+   {
+      $gpxx3 = 1;
+   }
+
+   if ($input['fax'])
+   {
+      $gpxx3 = 1;
+   }
+
+   if ($input['email'])
+   {
+      $gpxx3 = 1;
+   }
+
+   if ($input['url'])
+   {
+      $gpxx3 = 1;
+   }
+
+   $gpx_output = term_replace($input['term'], $xmlhdr);
+   $gpx_output .= $term;
+
+   if ($gpxx3)
+   {
+      $gpx_output .= term_replace($input['term'], $gpxx3hdr);
+   }
+   else
+   {
+      $gpx_output .= term_replace($input['term'], $gpx11hdr);
+   }
+   $gpx_output .= $term;
+   $gpx_output .= $term;
+
+   $gpx_output .= "   <wpt lat=\"${input['lat']}\" lon=\"${input['lon']}\">$term";
+
+   if ($input['ele'])
+   {
+      $gpx_output .= "      <ele>${input['ele']}</ele>$term";
+   }
+
+   date_default_timezone_set('UTC');
+   $date = date('Y-m-d');
+   $time = date('H:i:s');
+   $gpx_output .= "      <time>" . $date . "T" . $time . "Z</time>$term";
+
+   if ($input['name'])
+   {
+      $gpx_output .= "      <name>${input['name']}</name>$term";
+   }
+
+   if ($input['cmt'])
+   {
+      $gpx_output .= "      <cmt>${input['cmt']}</cmt>$term";
+   }
+
+   if ($input['desc'])
+   {
+      $gpx_output .= "      <desc>${input['desc']}</desc>$term";
+   }
+
+   if ($input['sym'])
+   {
+      $gpx_output .= "      <sym>${input['sym']}</sym>$term";
+   }
+
+   if ($input['type'])
+   {
+      $gpx_output .= "      <type>${input['type']}</type>$term";
+   }
+
+   if ($gpxx3)
+   {
+      $gpx_output .= "      <extensions>$term";
+      $gpx_output .= "         <gpxx:WaypointExtension>$term";
+
+      if ($input['prox'])
+      {
+         $gpx_output .= "            <gpxx:Proximity>${input['prox']}</gpxx:Proximity>$term";
+      }
+
+      if ($cat_ext)
+      {
+         $gpx_output .= "            <gpxx:Categories>$term";
+
+         if ($input['cat'])
+         {
+            $gpx_output .= "               <gpxx:Category>${input['cat']}</gpxx:Category>$term";
+         }
+
+         $gpx_output .= "            </gpxx:Categories>$term";
+      }
+
+      if ($addr_ext)
+      {
+         $gpx_output .= "            <gpxx:Address>$term";
+
+         if ($input['staddr'])
+         {
+            $gpx_output .= "               <gpxx:StreetAddress>${input['staddr']}</gpxx:StreetAddress>$term";
+         }
+
+         if ($input['city'])
+         {
+            $gpx_output .= "               <gpxx:City>${input['city']}</gpxx:City>$term";
+         }
+
+         if ($input['state'])
+         {
+            $gpx_output .= "               <gpxx:State>${input['state']}</gpxx:State>$term";
+         }
+
+         if ($input['country'])
+         {
+            $gpx_output .= "               <gpxx:Country>${input['country']}</gpxx:Country>$term";
+         }
+
+         if ($input['postalcode'])
+         {
+            $gpx_output .= "               <gpxx:PostalCode>${input['postalcode']}</gpxx:PostalCode>$term";
+         }
+
+         $gpx_output .= "            </gpxx:Address>$term";
+      }
+
+      if ($input['phone'])
+      {
+         $gpx_output .= "            <gpxx:PhoneNumber Category=\"Phone\">${input['phone']}</gpxx:PhoneNumber>$term";
+      }
+
+      if ($input['phone2'])
+      {
+         $gpx_output .= "            <gpxx:PhoneNumber Category=\"Phone2\">${input['phone2']}</gpxx:PhoneNumber>$term";
+      }
+
+      if ($input['fax'])
+      {
+         $gpx_output .= "            <gpxx:PhoneNumber Category=\"Fax\">${input['fax']}</gpxx:PhoneNumber>$term";
+      }
+
+      if ($input['email'])
+      {
+         $gpx_output .= "            <gpxx:PhoneNumber Category=\"Email\">${input['email']}</gpxx:PhoneNumber>$term";
+      }
+
+      if ($input['url'])
+      {
+         $gpx_output .= "            <gpxx:PhoneNumber Category=\"URL\">${input['url']}</gpxx:PhoneNumber>$term";
+      }
+
+      $gpx_output .= "         </gpxx:WaypointExtension>$term";
+      $gpx_output .= "      </extensions>$term";
+   }
+
+   $gpx_output .= "   </wpt>$term";
+   $gpx_output .= "$term";
+
+   //$gpx_output .= "</gpx>$term";
+   $gpx_output .= "</gpx>";
+
+   if ($input['mode'] == 'Download')
+   {
+      if($input['file'] == '')
+      {
+         $input['file'] = 'default';
+      }
+
+      header("Content-Type: text/plain");
+      header("Content-Disposition: attachment; filename=\"${input['file']}.gpx\"");
+
+      echo $gpx_output;
+   }
+   else
+   {
+      echo '<pre>';
+      echo htmlentities($gpx_output, ENT_QUOTES);
+      echo '</pre>';
+   }
+?>
