@@ -313,6 +313,25 @@
             </objects>
             <point key="canvasLocation" x="3581" y="-538"/>
         </scene>
+        <!--Share View Controller-->
+        <scene sceneID="bMy-Ed-Jfg">
+            <objects>
+                <viewController id="Fjd-3G-Dxw" customClass="ShareViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pzi-JX-rq9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eef-ov-JfF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qlf-Oe-PYS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D1n-c7-cA1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2b-YZ-vB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4048" y="-538"/>
+        </scene>
         <!--Bars View Controller - Bars Map-->
         <scene sceneID="dK7-8K-vIf">
             <objects>
