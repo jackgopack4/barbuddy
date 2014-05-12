@@ -14,11 +14,11 @@
     #define MADISON_LATITUDE 43.072906
     #define MADISON_LONGITUDE -89.396119
     
-    #define SPAN_VALUE 0.030f
+    #define SPAN_VALUE 0.040f
 
 
 @implementation BarsMapViewController
-
+Boolean didRefreshFrame = false;
 
 - (void)viewDidLoad
 {
@@ -27,6 +27,7 @@
     [self.BarsMapView setDelegate: self];
     
 	// Do any additional setup after loading the view.
+
     self.BarsMapView.mapType=0;
     
     //region
@@ -170,6 +171,12 @@
     
 }
 
+- (void) lManage:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+}
+
+
 //Customizing Pins
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -195,12 +202,28 @@
     return view;
     }
 }
+- (IBAction)locateMe:(UIButton *)sender {
+    CLLocationManager *lManage = [[CLLocationManager alloc] init];
+    lManage.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    lManage.desiredAccuracy = kCLLocationAccuracyNearestTenMeters; // 10 m
+    NSLog(@"Manually refreshing location");
+    [lManage startUpdatingLocation];
+    MKCoordinateRegion viewRegionLocation = MKCoordinateRegionMakeWithDistance([lManage location].coordinate, 500, 500);
+    NSLog(@"Updated display");
+    [self.BarsMapView setRegion:viewRegionLocation animated:YES];
+    [lManage stopUpdatingLocation];
+    
+}
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *) userLocation
 {
     CLLocationCoordinate2D loc = [userLocation coordinate];
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 500,500);
-    [self.BarsMapView setRegion: region animated: YES];
+    if(!didRefreshFrame) {
+        [self.BarsMapView setRegion: region animated: YES];
+        NSLog(@"Automatically refreshing view based on location refresh");
+    }
+    didRefreshFrame = true;
 }
 
 //Annotation button functionality TESTING/DEBUG

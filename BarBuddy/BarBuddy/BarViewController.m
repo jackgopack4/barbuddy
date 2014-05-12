@@ -71,10 +71,10 @@
     [[UIApplication sharedApplication] openURL:shareURL];
 }
 - (IBAction)shareItem:(UIBarButtonItem *)sender {
-    NSMutableString *shareText = (NSMutableString *)@"I found the bar ";
-    [shareText appendString:[self.selectedBar getBarName]];
-    [shareText appendString:@" on BarBuddy!"];
-    NSURL *shareURL = [NSURL URLWithString:[self.selectedBar getBarWebSite]];
+    NSString *tempString = @"I found the bar: ";
+    NSString *tempString2 = [tempString stringByAppendingString:[self.selectedBar getBarName]];
+    NSString *shareText = [tempString2 stringByAppendingString:@" on BarBuddy!"];
+    NSURL *shareURL = [NSURL URLWithString:@"http://facebook.com/BarBuddy"];
     UIImage *shareImage = [UIImage imageNamed:@"NewBeerLogo.png"];
     
     NSArray *activityItems = [NSArray arrayWithObjects:shareText, shareURL, shareImage, nil];
