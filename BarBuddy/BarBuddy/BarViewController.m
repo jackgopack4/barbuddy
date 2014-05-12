@@ -26,11 +26,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
+    //UIBarButtonItem *shareItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:nil];
     //UIBarButtonItem *cameraItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:nil];
     
-    NSArray *actionButtonItems = @[shareItem];
-    self.navigationItem.rightBarButtonItems = actionButtonItems;
+    //NSArray *actionButtonItems = @[shareItem];
+    //self.navigationItem.rightBarButtonItems = actionButtonItems;
     
     // Do any additional setup after loading the view.
     
@@ -66,6 +66,37 @@
     // The number of cells that need to be created
     return self.selectedBar.drinkList.count;
 }
+- (IBAction)BarUrlTouch:(UIButton *)sender {
+    NSURL *shareURL = [NSURL URLWithString:self.selectedBar.barWebSite];
+    [[UIApplication sharedApplication] openURL:shareURL];
+}
+- (IBAction)shareItem:(UIBarButtonItem *)sender {
+    NSMutableString *shareText = (NSMutableString *)@"I found the bar ";
+    [shareText appendString:self.selectedBar.barName];
+    [shareText appendString:@" on BarBuddy!"];
+    NSURL *shareURL = [NSURL URLWithString:self.selectedBar.barWebSite];
+    UIImage *shareImage = [UIImage imageNamed:@"NewBeerLogo.png"];
+    
+    NSArray *activityItems = [NSArray arrayWithObjects:shareText, shareURL, shareImage, nil];
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+                              UIActivityTypeMessage,
+                              UIActivityTypeMail,
+                              UIActivityTypePrint,
+                              UIActivityTypeCopyToPasteboard,
+                              UIActivityTypeAssignToContact,
+                              UIActivityTypeSaveToCameraRoll,
+                              UIActivityTypeAddToReadingList,
+                              UIActivityTypePostToFlickr,
+                              UIActivityTypePostToVimeo,
+                              UIActivityTypePostToTencentWeibo,
+                              UIActivityTypeAirDrop];
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -92,7 +123,6 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    (UIStoryBoardPopoverSegue *)seg = segue;
     
 }
 

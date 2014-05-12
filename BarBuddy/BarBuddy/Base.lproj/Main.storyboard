@@ -296,11 +296,20 @@
                                 <state key="normal" title="website">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="BarUrlTouch:" destination="9XY-2Q-BZY" eventType="touchUpInside" id="rB1-tZ-p8m"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="BarBuddy" id="8ni-zW-eah"/>
+                    <navigationItem key="navigationItem" title="BarBuddy" id="8ni-zW-eah">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="oq8-Qe-BF9">
+                            <connections>
+                                <action selector="shareItem:" destination="9XY-2Q-BZY" id="ues-oR-M3C"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="barView" destination="ffN-fo-juJ" id="ZSK-KC-veL"/>
                         <outlet property="drinkTableView" destination="Aqg-LN-L3Y" id="den-lF-Vx6"/>
@@ -312,25 +321,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROo-2O-29v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3581" y="-538"/>
-        </scene>
-        <!--Share View Controller-->
-        <scene sceneID="bMy-Ed-Jfg">
-            <objects>
-                <viewController id="Fjd-3G-Dxw" customClass="ShareViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pzi-JX-rq9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eef-ov-JfF"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qlf-Oe-PYS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="D1n-c7-cA1"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h2b-YZ-vB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4048" y="-538"/>
         </scene>
         <!--Bars View Controller - Bars Map-->
         <scene sceneID="dK7-8K-vIf">
