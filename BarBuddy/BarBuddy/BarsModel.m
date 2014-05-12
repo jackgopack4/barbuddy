@@ -75,21 +75,21 @@
         Bar *newBar = [[Bar alloc] init];
         
         // grab the bar's meta data
-        newBar.barName = [[barElement objectForKey:@"bar_info"] objectForKey:@"name"];
-        newBar.barOwner =[[barElement objectForKey:@"bar_info"] objectForKey:@"owner"];
-        newBar.barHours =[[barElement objectForKey:@"bar_info"] objectForKey:@"hours"];
-        newBar.barEmail =[[barElement objectForKey:@"bar_info"] objectForKey:@"email"];
-        newBar.barWebSite =[[barElement objectForKey:@"bar_info"] objectForKey:@"website"];
+        [newBar setBarName:[[barElement objectForKey:@"bar_info"] objectForKey:@"name"]];
+        [newBar setBarOwner:[[barElement objectForKey:@"bar_info"] objectForKey:@"owner"]];
+        [newBar setBarHours:[[barElement objectForKey:@"bar_info"] objectForKey:@"hours"]];
+        [newBar setBarEmail:[[barElement objectForKey:@"bar_info"] objectForKey:@"email"]];
+        [newBar setBarWebSite:[[barElement objectForKey:@"bar_info"] objectForKey:@"website"]];
         
         NSEnumerator *drinkEnumerator = [[barElement objectForKey:@"bar_drinks"] objectEnumerator];
         NSDictionary *drinkElement;
         
         while (drinkElement = [drinkEnumerator nextObject]) {
             Drink *newDrink = [[Drink alloc] init];
-            newDrink.drinkName = [drinkElement objectForKey:@"drink_name"];
-            newDrink.drinkCost = [drinkElement objectForKey:@"drink_cost"];
-            newDrink.drinkDay = [drinkElement objectForKey:@"drink_day"];
-            [newBar.drinkList addObject:newDrink];
+            [newDrink setDrinkName:[drinkElement objectForKey:@"drink_name"]];
+            [newDrink setDrinkCost:[drinkElement objectForKey:@"drink_cost"]];
+            [newDrink setDrinkDay:[drinkElement objectForKey:@"drink_day"]];
+            [newBar addDrink:newDrink];
         }
         
         [barList addObject:newBar];

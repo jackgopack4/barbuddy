@@ -82,13 +82,6 @@
     return 1;
 }
 
-- (IBAction)listToMap:(UISegmentedControl *)sender {
-    UISegmentedControl *seg = sender;
-    if(seg.selectedSegmentIndex == 0) {
-        [self performSegueWithIdentifier:@"listToMap" sender:self];
-    }
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // The number of cells that need to be created
@@ -107,7 +100,7 @@
     Bar *bar = [_feedItems objectAtIndex:indexPath.row];
     
     // Fill the cell with pertinent data
-    [cell.barName setText:bar.barName];
+    [cell.barName setText:[bar getBarName]];
     
     return cell;
 }

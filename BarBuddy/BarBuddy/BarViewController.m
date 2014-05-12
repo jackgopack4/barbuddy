@@ -38,7 +38,7 @@
     self.drinkTableView.dataSource = self;
     
     
-    [self.selectedBarName setText:self.selectedBar.barName];
+    [self.selectedBarName setText:[self.selectedBar getBarName]];
     
     
 }
@@ -64,17 +64,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // The number of cells that need to be created
-    return self.selectedBar.drinkList.count;
+    return [[self.selectedBar getBarDrinkList] count];
 }
 - (IBAction)BarUrlTouch:(UIButton *)sender {
-    NSURL *shareURL = [NSURL URLWithString:self.selectedBar.barWebSite];
+    NSURL *shareURL = [NSURL URLWithString:[self.selectedBar getBarWebSite]];
     [[UIApplication sharedApplication] openURL:shareURL];
 }
 - (IBAction)shareItem:(UIBarButtonItem *)sender {
     NSMutableString *shareText = (NSMutableString *)@"I found the bar ";
-    [shareText appendString:self.selectedBar.barName];
+    [shareText appendString:[self.selectedBar getBarName]];
     [shareText appendString:@" on BarBuddy!"];
-    NSURL *shareURL = [NSURL URLWithString:self.selectedBar.barWebSite];
+    NSURL *shareURL = [NSURL URLWithString:[self.selectedBar getBarWebSite]];
     UIImage *shareImage = [UIImage imageNamed:@"NewBeerLogo.png"];
     
     NSArray *activityItems = [NSArray arrayWithObjects:shareText, shareURL, shareImage, nil];
@@ -107,7 +107,7 @@
     }
     
     // Grab the bar that matches this cell
-    Drink *drink = [self.selectedBar.drinkList objectAtIndex:indexPath.row];
+    Drink *drink = [[self.selectedBar getBarDrinkList] objectAtIndex:indexPath.row];
     
     // Fill the cell with pertinent data
     [cell.drinkDescription setText:[drink getFormattedDescription]];

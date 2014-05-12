@@ -8,15 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Drink : NSObject
+@interface Drink : NSObject {
+    NSString *_drinkName;
+    NSString *_drinkCost;
+    NSString *_drinkDay;
+}
 
-@property (nonatomic, strong) NSString *drinkName;
-@property (nonatomic, strong) NSString *drinkCost;
-@property (nonatomic, strong) NSString *drinkDay;
+//@property (nonatomic, strong) NSString *drinkName;
+//@property (nonatomic, strong) NSString *drinkCost;
+//@property (nonatomic, strong) NSString *drinkDay;
 
 -(NSString *) getDrinkName;
 -(NSString *) getDrinkCost;
 -(NSString *) getDrinkDay;
 -(NSString *) getFormattedDescription;
+
+-(void) setDrinkName:(NSString *)drinkName;
+-(void) setDrinkCost:(NSString *)drinkCost;
+-(void) setDrinkDay:(NSString *)drinkDay;
 
 @end
