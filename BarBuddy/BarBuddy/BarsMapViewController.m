@@ -186,19 +186,18 @@
     
     //view
     MKPinAnnotationView *view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
-    //pin color
-    //view.pinColor = MKPinAnnotationColorPurple;
-    //enabled animated
-    view.enabled = YES;
-    view.animatesDrop = YES;
-    view.canShowCallout = YES;
-    //image button
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar.png"]];
     view.leftCalloutAccessoryView = imageView;
     view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    view.image = [UIImage imageNamed:@"bar.png"]; //Changes pin image (not working)
         
+    view.image = [UIImage imageNamed:@"bar.png"]; //Changes pin image (not working)
+    //enabled animated
+    view.enabled = YES;
+    view.animatesDrop = NO;
+    view.canShowCallout = YES;
+    //image button
+    
     return view;
     }
 }
