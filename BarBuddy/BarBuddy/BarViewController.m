@@ -38,7 +38,7 @@
     self.drinkTableView.dataSource = self;
     
     
-    [self.selectedBarName setText:self.selectedBar.barName];
+    [self.selectedBarName setText:[self.selectedBar getBarName]];
     
     
 }
@@ -64,7 +64,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // The number of cells that need to be created
-    return self.selectedBar.drinkList.count;
+    return [[self.selectedBar getBarDrinkList] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +76,7 @@
     }
     
     // Grab the bar that matches this cell
-    Drink *drink = [self.selectedBar.drinkList objectAtIndex:indexPath.row];
+    Drink *drink = [[self.selectedBar getBarDrinkList] objectAtIndex:indexPath.row];
     
     // Fill the cell with pertinent data
     [cell.drinkDescription setText:[drink getFormattedDescription]];

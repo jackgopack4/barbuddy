@@ -74,4 +74,20 @@
     return description;
 }
 
+-(void) setDrinkName:(NSString *)drinkName {
+
+    _drinkName = drinkName;
+}
+
+-(void) setDrinkCost:(NSString *)drinkCost {
+    
+    _drinkCost = drinkCost;
+}
+
+-(void) setDrinkDay:(NSString *)drinkDay {
+    
+    _drinkDay = drinkDay;
+}
+
+
 @end

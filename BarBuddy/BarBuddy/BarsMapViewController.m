@@ -170,12 +170,6 @@
     
 }
 
-- (IBAction)mapToList:(UISegmentedControl *)sender {
-    UISegmentedControl *seg = sender;
-    if(seg.selectedSegmentIndex == 1)
-        [self performSegueWithIdentifier:@"mapToList" sender:self];
-}
-
 //Customizing Pins
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
