@@ -66,6 +66,15 @@
     // The number of cells that need to be created
     return [[self.selectedBar getBarDrinkList] count];
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Drink *drink = [[self.selectedBar getBarDrinkList] objectAtIndex:indexPath.row];
+    NSString *drinkDescription = [drink getFormattedDescription];
+    // calculate row height based on drink list
+    if([drinkDescription length] > 28) return 49;
+    else return 43;
+    
+}
 - (IBAction)BarUrlTouch:(UIButton *)sender {
     NSURL *shareURL = [NSURL URLWithString:[self.selectedBar getBarWebSite]];
     [[UIApplication sharedApplication] openURL:shareURL];
